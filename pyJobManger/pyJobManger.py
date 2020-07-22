@@ -8,10 +8,11 @@ import numpy as np
 import pandas as pd
 import glob
 
-def dummy_fun(x):
+def dummy_fun(x,label):
+    print('Run Simu : ', label)
     return (x**2).sum()
 
-class Job_manager:
+class pyJobManager:
     def __init__(self, fun = None,
                  type_simu = 'Dummy',                 
                  param_names = ['p1','p2'],
@@ -83,7 +84,7 @@ class Job_manager:
 if __name__=='__main__':
 
     
-    jm = Job_manager(param2opt=np.array([0, 1, 1]),
+    jm = pyJobManager(param2opt=np.array([0, 1, 1]),
                      param_names = ['p1','p2','p3'],)
     x=np.array([[1,1],[2,2]])
     print(jm.run(x))   
